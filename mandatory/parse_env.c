@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/25 17:00:41 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:41:39 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**get_path(char **env)
 		if (ft_strnstr(env[i], "PATH=", 5))
 		{
 			env_path = &env[i][5];
-			break;
+			break ;
 		}
 		i++;
 	}

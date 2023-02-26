@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/25 16:55:20 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:41:10 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 {
 	char	**args;
 	int		args_num;
-	(void)vars;
 
 	args = NULL;
 	args_num = count_words(cmd, ' ');
@@ -49,7 +48,7 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 		args = malloc(sizeof(char *) * 3);
 		args[0] = ft_strdup(cmd);
 		args[1] = NULL;
-		args[2] =  NULL;
+		args[2] = NULL;
 	}
 	if (!args)
 		return (NULL);

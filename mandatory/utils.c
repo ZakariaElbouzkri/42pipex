@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:20:32 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 17:09:51 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:45:15 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	add_slash(char	**path)
 	}
 }
 
-void    free_dup(char **dup)
+void	free_dup(char **dup)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (dup[i])
@@ -38,7 +38,7 @@ void    free_dup(char **dup)
 	free(dup);
 }
 
-void    clear_vars(t_vrs *vrs)
+void	clear_vars(t_vrs *vrs)
 {
 	if (vrs->path)
 		free_dup(vrs->path);
@@ -47,4 +47,3 @@ void    clear_vars(t_vrs *vrs)
 	if (vrs->cmd_args2)
 		free_dup(vrs->cmd_args2);
 }
-
