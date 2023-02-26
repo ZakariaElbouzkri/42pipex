@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 18:26:40 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:12:27 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	**get_path(char **env)
 
 void	parse_env(t_vrs *vrs)
 {
+	if (!ft_strcmp(vrs->av[2], "") || !ft_strcmp(vrs->av[3], ""))
+		ft_puterror("ERROR: commad not found\n");
 	vrs->path = get_path(vrs->env);
 	if (!vrs->path)
 		ft_puterror("ERROR: path error");

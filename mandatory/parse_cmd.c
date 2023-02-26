@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 17:41:10 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:13:46 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 	if (!args)
 		return (NULL);
 	args[0] = get_binary_path(args[0], vars->path);
+	if (!args[0])
+		ft_puterror("ERROR\n");
 	return (args);
 }

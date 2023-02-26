@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:11:11 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 18:18:44 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:14:49 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ void	pipex(t_vrs *vrs)
 	}
 	else
 	{
+		if (fork() == 0)
+			exec_cmd2(vrs);
+		else
+			wait(NULL);
 		wait(0);
-		exec_cmd2(vrs);
 	}
 }
