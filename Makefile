@@ -37,11 +37,11 @@ all: $(LIB) $(NAME)
 
 $(LIB): $(OBJECT)
 	@$(AR) $@ $^
-	@echo "${BLUE} $@ ${GREEN} has been created"
+	@echo "${BLUE}$@ ${GREEN} has been created"
 
 $(NAME) : $(LIB) $(PIP_OBJ)
 	@$(CC) $^ -o $@
-	@echo "${CYAN} $@ ${GREEN} Created"
+	@echo "${CYAN}$@ ${GREEN} Created"
 
 clean:
 	@echo "${RED}Archive file removed" | pv -qL 40
@@ -50,7 +50,7 @@ clean:
 fclean: clean
 	@${RM} $(LIB)
 	@${RM} $(NAME)
-	@echo "${RED} everything removed"
+	@echo "${RED}everything removed"
 
 re: fclean all
 

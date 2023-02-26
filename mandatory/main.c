@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:13:51 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 18:13:55 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:26:51 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av, char **env)
 		init_vars(&vrs, env, av);
 		vrs.inp = open(vrs.av[1], O_RDONLY);
 		if (vrs.inp == -1)
-			ft_puterror("ERROR: invalid file\n");
+			ft_puterror("ERROR: invalid input file\n");
 		vrs.out = open(vrs.av[4], O_RDWR | O_TRUNC | O_CREAT, 0777);
 		if (vrs.out == -1)
 		{

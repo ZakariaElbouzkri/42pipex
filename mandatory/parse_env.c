@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 17:41:39 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:26:40 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	**get_path(char **env)
 void	parse_env(t_vrs *vrs)
 {
 	vrs->path = get_path(vrs->env);
+	if (!vrs->path)
+		ft_puterror("ERROR: path error");
 	add_slash(vrs->path);
 	vrs->cmd_args1 = parse_cmd(vrs->av[2], vrs);
 	vrs->cmd_args2 = parse_cmd(vrs->av[3], vrs);
