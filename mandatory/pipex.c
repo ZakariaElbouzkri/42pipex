@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:11:11 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 17:44:27 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:10:18 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,24 @@ void	exec_cmd2(t_vrs *vrs)
 
 void	pipex(t_vrs *vrs)
 {
-	vrs->inp = open(vrs->av[1], O_RDONLY);
-	if (vrs->inp == -1)
-	{
-		clear_vars(vrs);
-		ft_puterror("ERROR: invalid file\n");
-	}
-	vrs->out = open(vrs->av[4], O_RDWR | O_TRUNC | O_CREAT, 0777);
-	if (vrs->out == -1)
-	{
-		clear_vars(vrs);
-		ft_puterror("ERROR: invalid file\n");
-	}
-	vrs->pid = fork();
-	if ((pipe(vrs->fds) == -1) || (vrs->pid == -1))
+	if ((pipe(vrs->fds) == -1))
 	{
 		clear_vars(vrs);
 		ft_puterror("PIPE ERROR\n");
 	}
+	vrs->pid = fork();
+	if (vrs->pid == -1)
+	{
+		clear_vars(vrs);
+		ft_puterror("ERROR: fork error\n");
+	}
 	if (!vrs->pid)
-		exec_cmd1(vrs);
+	{
+		exec_cmd1(vrs);	
+	}
 	else
+	{
+		wait(0);
 		exec_cmd2(vrs);
+	}
 }
