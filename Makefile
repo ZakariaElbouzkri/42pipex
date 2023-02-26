@@ -7,7 +7,9 @@ CC = cc -Wall -Wextra -Werror
 
 AR = ar rc
 
-INCLUDES = ../includes/libft.h
+RM = rm -f
+
+INCLUDES = includes/libft.h includes/pipex.h
 
 CYAN = \033[0;36m
 BLUE = \033[0;34m
@@ -30,24 +32,25 @@ PIP_OBJ = $(PIP_FILES:.c=.o)
 
 all: $(LIB) $(NAME)
 
-%.o: %.c 
-	@echo "${CYAN}compiling${GREEN} ${@}" 
+%.o: %.c $(INCLUDES)
 	@$(CC) -o $@ -c  $<
 
 $(LIB): $(OBJECT)
 	@$(AR) $@ $^
-	@echo "${BLUE}libft.a${GREEN} has been created" | pv -qL 50
+	@echo "${BLUE} $@ ${GREEN} has been created"
 
 $(NAME) : $(LIB) $(PIP_OBJ)
-	$(CC) $^ -o $@
+	@$(CC) $^ -o $@
+	@echo "${CYAN} $@ ${GREEN} Created"
 
 clean:
 	@echo "${RED}Archive file removed" | pv -qL 40
 	@rm -f $(OBJECT) $(PIP_OBJ)
 
 fclean: clean
-	@echo "${RED}libft.a has been removed" | pv -qL 40
-	@rm -rf $(NAME)
+	@${RM} $(LIB)
+	@${RM} $(NAME)
+	@echo "${RED} everything removed"
 
 re: fclean all
 
