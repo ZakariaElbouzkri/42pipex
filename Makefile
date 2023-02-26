@@ -44,7 +44,7 @@ $(NAME) : $(LIB) $(PIP_OBJ)
 	@echo "${CYAN}$@ ${GREEN} Created"
 
 clean:
-	@echo "${RED}Archive file removed" | pv -qL 40
+	@echo "${RED}Archive file removed"
 	@rm -f $(OBJECT) $(PIP_OBJ)
 
 fclean: clean
