@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:11:11 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 19:14:49 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/02/27 01:44:29 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ void	exec_cmd1(t_vrs *vrs)
 	close(vrs->fds[1]);
 	execve(vrs->cmd_args1[0], vrs->cmd_args1, vrs->env);
 	ft_puterror("ERROR EXECVE\n");
+}
+
+void	close_all_fds(t_vrs *vrs)
+{
+	close(vrs->fds[0]);
+	close(vrs->fds[1]);
+	close(vrs->inp);
+	close(vrs->out);
+	wait(NULL);
 }
 
 void	exec_cmd2(t_vrs *vrs)
@@ -58,7 +67,7 @@ void	pipex(t_vrs *vrs)
 		if (fork() == 0)
 			exec_cmd2(vrs);
 		else
-			wait(NULL);
-		wait(0);
+			close_all_fds(vrs);
+		wait(NULL);
 	}
 }
