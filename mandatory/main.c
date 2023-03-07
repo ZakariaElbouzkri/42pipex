@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:13:51 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 18:57:37 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:11:01 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ int	main(int ac, char **av, char **env)
 		pipex(&vrs);
 	}
 	else
+	{
+		ft_putstr("argmunets number invalide");
 		exit(1);
+	}
 }

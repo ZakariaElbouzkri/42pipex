@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:11:11 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/27 01:44:29 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:38:56 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,16 @@ void	pipex(t_vrs *vrs)
 	if ((pipe(vrs->fds) == -1))
 	{
 		clear_vars(vrs);
-		ft_puterror("PIPE ERROR\n");
+		ft_puterror("Pipe error\n");
 	}
 	vrs->pid = fork();
 	if (vrs->pid == -1)
 	{
 		clear_vars(vrs);
-		ft_puterror("ERROR: fork error\n");
+		ft_puterror("Fork error\n");
 	}
 	if (!vrs->pid)
-	{
 		exec_cmd1(vrs);
-	}
 	else
 	{
 		if (fork() == 0)

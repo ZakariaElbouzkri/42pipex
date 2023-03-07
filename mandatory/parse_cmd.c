@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 19:13:46 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:38:44 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*get_binary_path(char *cmd, char **path)
 		bin = ft_strjoin_std(path[i], cmd);
 		if (!access(bin, X_OK))
 			return (bin);
+		else if (!access(cmd, X_OK))
+			return (cmd);
 		else
 		{
 			free(bin);
@@ -31,6 +33,7 @@ char	*get_binary_path(char *cmd, char **path)
 		}
 		i++;
 	}
+	free(bin);
 	return (bin);
 }
 
@@ -49,6 +52,7 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 		args[0] = ft_strdup(cmd);
 		args[1] = NULL;
 		args[2] = NULL;
+		
 	}
 	if (!args)
 		return (NULL);
@@ -57,3 +61,13 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 		ft_puterror("ERROR\n");
 	return (args);
 }
+
+
+// env->PATH
+// CMD command
+
+// **tab = ft_split(env->PATH);
+// for(int i = 0; tab[i];i++)
+// {
+// 	execve(ft_strjoin(CMD, tab[i], NULL, env));
+// }

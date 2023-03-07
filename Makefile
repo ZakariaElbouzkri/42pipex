@@ -11,13 +11,6 @@ RM = rm -f
 
 INCLUDES = includes/libft.h includes/pipex.h
 
-CYAN = \033[0;36m
-BLUE = \033[0;34m
-PURPLE = \033[0;35m
-YELLOW = \033[0;33m
-GREEN = \033[0;32m
-RED = \033[0;31m
-
 LIB_FILES =	libft/ft_atoi.c libft/ft_atoi_long.c  libft/ft_bzero.c  libft/ft_calloc.c  libft/ft_isalnum.c  libft/ft_isalpha.c  libft/ft_isascii.c  libft/ft_isdigit.c  libft/ft_isprint.c  libft/ft_itoa.c  libft/ft_memchr.c  libft/ft_memcmp.c \
 	libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c libft/ft_putchar.c libft/ft_putchar_fd.c libft/ft_putendl_fd.c libft/ft_puterror.c libft/ft_puthexa.c libft/ft_putnbr.c libft/ft_putnbr_fd.c libft/ft_putptr.c libft/ft_putstr.c \
 	libft/ft_putstr_fd.c libft/ft_putunbr.c libft/ft_split.c libft/ft_strchr.c libft/ft_strchr_std.c libft/ft_strcmp.c libft/ft_strcpy.c libft/ft_strdup.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strjoin_std.c libft/ft_strlcat.c libft/ft_strlcpy.c \
@@ -37,20 +30,20 @@ all: $(LIB) $(NAME)
 
 $(LIB): $(OBJECT)
 	@$(AR) $@ $^
-	@echo "${BLUE}$@ ${GREEN} has been created"
+	@echo "created $@"
 
 $(NAME) : $(LIB) $(PIP_OBJ)
-	@$(CC) $^ -o $@
-	@echo "${CYAN}$@ ${GREEN} Created"
+	$(CC) $^ -o $@
+	echo "created $@"
 
 clean:
-	@echo "${RED}Archive file removed"
 	@rm -f $(OBJECT) $(PIP_OBJ)
+	@echo "Archive file removed"
 
 fclean: clean
 	@${RM} $(LIB)
 	@${RM} $(NAME)
-	@echo "${RED}everything removed"
+	@echo "removed everything"
 
 re: fclean all
 
