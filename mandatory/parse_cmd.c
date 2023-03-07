@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/06 21:38:44 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/07 05:20:13 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 		args[0] = ft_strdup(cmd);
 		args[1] = NULL;
 		args[2] = NULL;
-		
 	}
 	if (!args)
 		return (NULL);
@@ -61,13 +60,3 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 		ft_puterror("ERROR\n");
 	return (args);
 }
-
-
-// env->PATH
-// CMD command
-
-// **tab = ft_split(env->PATH);
-// for(int i = 0; tab[i];i++)
-// {
-// 	execve(ft_strjoin(CMD, tab[i], NULL, env));
-// }
