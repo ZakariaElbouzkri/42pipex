@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/12 09:48:12 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 10:29:21 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	**parse_cmd(char	*cmd, t_vrs *vars)
 {
 	char	**args;
 	int		args_num;
-	
+
 	args = NULL;
 	args_num = count_words(cmd, ' ');
 	args = ft_split(cmd, ' ');

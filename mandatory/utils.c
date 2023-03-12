@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:20:32 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/12 09:59:24 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 10:29:54 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ void	free_dup(char **dup)
 	free(dup);
 }
 
-void	clear_vars(t_vrs *vrs, int	er)
+void	clear_vars(t_vrs *vrs, int er)
 {
-	char	*err[5];
+	char	*err[6];
 
 	err[0] = "Error : invalid input file\n";
 	err[1] = "Error : command not found\n";
 	err[2] = "Error : path not found \n";
 	err[3] = "Error : pip or fork error \n";
 	err[4] = "Error : execve faild \n";
-
+	err[5] = "Error : dup2 faild \n";
 	if (vrs->path)
 		free_dup(vrs->path);
 	if (vrs->cmd_args1)

@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:14:30 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/12 09:40:12 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 10:29:05 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_vrs
 	int		inp;
 	int		out;
 	pid_t	pid;
+	pid_t	pid2;
 	int		fds[2];
 }	t_vrs;
 
@@ -36,7 +37,6 @@ void	pipex(t_vrs *vrs);
 // utils functions :
 void	add_slash(char	**path);
 void	free_dup(char **dup);
-void	clear_vars(t_vrs *vrs, int	er);
-void	leaks();
+void	clear_vars(t_vrs *vrs, int er);
 
 #endif
