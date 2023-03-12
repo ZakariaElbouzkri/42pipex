@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:20:32 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/12 10:29:54 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 10:35:00 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	clear_vars(t_vrs *vrs, int er)
 {
 	char	*err[6];
 
-	err[0] = "Error : invalid input file\n";
+	err[0] = "Error : invalid input or output file\n";
 	err[1] = "Error : command not found\n";
 	err[2] = "Error : path not found \n";
 	err[3] = "Error : pip or fork error \n";

@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:13:51 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/12 10:28:14 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 10:36:53 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,5 @@ int	main(int ac, char **av, char **env)
 		pipex(&vrs);
 	}
 	else
-	{
-		ft_putstr("argmunets number invalide");
-		exit(1);
-	}
+		ft_puterror("Error : invalid number of arguments\n");
 }
