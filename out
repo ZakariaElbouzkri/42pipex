@@ -1,0 +1,9 @@
+total 144
+-rw-r--r--    1 zel-bouz  candidate   1655 Mar 12 09:11 Makefile
+-rw-r--r--    1 zel-bouz  candidate      0 Mar 12 09:15 in
+drwxr-xr-x    4 zel-bouz  candidate    136 Mar 12 09:11 includes
+drwxr-xr-x  102 zel-bouz  candidate   3468 Mar 12 09:59 libft
+-rw-r--r--    1 zel-bouz  candidate  52632 Mar 12 09:59 libft.a
+drwxr-xr-x   12 zel-bouz  candidate    408 Mar 12 10:03 mandatory
+-rwxr-xr-x    1 zel-bouz  candidate      0 Mar 12 10:07 out
+-rwxr-xr-x    1 zel-bouz  candidate  14412 Mar 12 10:03 pipex

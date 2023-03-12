@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:14:30 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 18:32:31 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 09:40:12 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	pipex(t_vrs *vrs);
 // utils functions :
 void	add_slash(char	**path);
 void	free_dup(char **dup);
-void	clear_vars(t_vrs *vrs);
+void	clear_vars(t_vrs *vrs, int	er);
+void	leaks();
 
 #endif

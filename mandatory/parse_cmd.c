@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/03/07 05:20:13 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 09:48:12 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,42 +21,32 @@ char	*get_binary_path(char *cmd, char **path)
 	bin = NULL;
 	while (path[i])
 	{
-		bin = ft_strjoin_std(path[i], cmd);
+		bin = ft_strjoin(ft_strdup(path[i]), cmd);
 		if (!access(bin, X_OK))
-			return (bin);
+			return (free(cmd), cmd = NULL, bin);
 		else if (!access(cmd, X_OK))
-			return (cmd);
-		else
-		{
-			free(bin);
-			bin = NULL;
-		}
+			return (free(bin), bin = NULL, cmd);
+		free(bin);
+		bin = NULL;
 		i++;
 	}
 	free(bin);
-	return (bin);
+	free(cmd);
+	return (bin = NULL, cmd = NULL, NULL);
 }
 
 char	**parse_cmd(char	*cmd, t_vrs *vars)
 {
 	char	**args;
 	int		args_num;
-
+	
 	args = NULL;
 	args_num = count_words(cmd, ' ');
-	if (args_num >= 2)
-		args = ft_split(cmd, ' ');
-	else if (args_num == 1)
-	{
-		args = malloc(sizeof(char *) * 3);
-		args[0] = ft_strdup(cmd);
-		args[1] = NULL;
-		args[2] = NULL;
-	}
+	args = ft_split(cmd, ' ');
 	if (!args)
 		return (NULL);
 	args[0] = get_binary_path(args[0], vars->path);
 	if (!args[0])
-		ft_puterror("ERROR\n");
+		clear_vars(vars, 2);
 	return (args);
 }

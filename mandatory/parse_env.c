@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zel-bouz <zel-bouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 15:21:23 by zel-bouz          #+#    #+#             */
-/*   Updated: 2023/02/26 19:12:27 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2023/03/12 09:51:51 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ char	**get_path(char **env)
 void	parse_env(t_vrs *vrs)
 {
 	if (!ft_strcmp(vrs->av[2], "") || !ft_strcmp(vrs->av[3], ""))
-		ft_puterror("ERROR: commad not found\n");
+		clear_vars(vrs, 2);
 	vrs->path = get_path(vrs->env);
 	if (!vrs->path)
-		ft_puterror("ERROR: path error");
+		clear_vars(vrs, 3);
 	add_slash(vrs->path);
 	vrs->cmd_args1 = parse_cmd(vrs->av[2], vrs);
 	vrs->cmd_args2 = parse_cmd(vrs->av[3], vrs);
+	free_dup(vrs->path);
+	vrs->path = NULL;
 }
